@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react' // useState & useEffect -> react Hooks
 import axios from 'axios'
+import Button from '@mui/material/Button';
 
 type Todo = {
     title: string,
@@ -23,7 +24,6 @@ function Todo() {
     }, []) // load data at initial rendering
 
     const handleAddTodo = () => {
-        console.log('add todo')
 
         const newTodo: Todo = {
             title: inputValue,
@@ -40,13 +40,11 @@ function Todo() {
     }
 
     const handleDeleteTodo = (id: number) => {
-        console.log('delete todo', id)
         const fitleredTodo = todos.filter((todo) => todo.id !== id)
         setTodos(fitleredTodo)
     }
 
     const handleToggleTodo = (id: number) => {
-        console.log('toggle todo', id)
         const newTodos = todos.map((todo) => {
             if(todo.id === id) {
                 return {
@@ -73,7 +71,7 @@ function Todo() {
                     <div key={todo.id}>
                         <input type="checkbox" checked={todo.completed} onChange={() => handleToggleTodo(todo.id)} />
                         <span>{todo.title}</span>
-                        <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
+                        <Button variant="contained" onClick={() => handleDeleteTodo(todo.id)}>Delete</Button>
                     </div>
                 )
             })}
