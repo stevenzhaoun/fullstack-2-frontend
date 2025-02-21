@@ -13,7 +13,8 @@ export default function Login() {
         event.preventDefault()
         console.log('submit', email, password)
         const response = await login(email, password)
-        // client.defaults.headers.common['Authorization'] = `Bearer ${response.token}`
+        console.log('response', response)
+        client.defaults.headers.common['Authorization'] = `Bearer ${response.token}`
         navigate('/')
     }
 
