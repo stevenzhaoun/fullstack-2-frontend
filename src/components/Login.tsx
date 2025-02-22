@@ -1,21 +1,23 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { login } from "../api/users.api";
+import { loginApi} from "../api/users.api";
 import client from "../api/client";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
+import useUser from "../hooks/useUser";
 
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const { login, isLoading } = useUser()
 
     const handleSubmit = async(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         console.log('submit', email, password)
-        const response = await login(email, password)
-        console.log('response', response)
-        client.defaults.headers.common['Authorization'] = `Bearer ${response.token}`
-        navigate('/')
+        await login(email, password)
+        setTimeout(() => {
+            window.location.href ='/'
+        }, 300)
     }
 
     return (

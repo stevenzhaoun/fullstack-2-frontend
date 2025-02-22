@@ -5,7 +5,7 @@ import { DataGrid, GridRowsProp, GridColDef, GridValueGetter } from '@mui/x-data
 import { getRoles } from "../../api/roles.api";
 import { Role, User } from "../../types";
 import { Box, Button } from "@mui/material";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { useDataLoad } from "../../hooks/useDataLoad";
 
 

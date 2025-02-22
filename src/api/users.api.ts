@@ -7,7 +7,7 @@ export const getUsers = async () => {
 }
 
 
-export const login = async(email: string, password: string) => {
+export const loginApi = async(email: string, password: string) => {
     const response = await client.post('/auth/login', { email: email, password: password })
     return response.data
 }

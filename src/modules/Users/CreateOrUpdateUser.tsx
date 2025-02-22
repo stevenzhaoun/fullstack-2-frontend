@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Role, User } from "../../types";
 import { getRoles } from "../../api/roles.api";
 import { createUser, getUserById, updateUser } from "../../api/users.api";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import Snackbar, { SnackbarCloseReason } from '@mui/material/Snackbar';
 import { useDataLoad } from "../../hooks/useDataLoad";
 

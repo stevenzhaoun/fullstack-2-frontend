@@ -3,7 +3,7 @@ import { getUsers } from "../../api/users.api";
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { getRoles } from "../../api/roles.api";
 import { Box, Button, CircularProgress } from "@mui/material";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { useDataLoad } from "../../hooks/useDataLoad";
 import { Role, User } from "../../types";
 
